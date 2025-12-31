@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomUser reimagined</title>
+    <script src="./axios@1.13.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<!-- script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+    <script src="./libreria.js"></script>
+	<script defer src="./indexProgetto.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Page index</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul id="navBarItems" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Genera utenti</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" aria-disabled="true">Table visualization</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" id="Home">
+    <h1>DISCAIMER: THIS SITE IS MEANT TO BE SIMILAR TO RANDOMUSER.ME AND DOES NOT INTEND TO COPY IT</h1>
+    <div class="frame car-offset">
+      <div class="user-image-container">
+        <img id="image" class="rounded-circle">
+      </div>
+      <p id="infoLabel"></p>
+      <div class="icons-container">
+        <ul id="Icons" class="values_list horizontal_center">
+          <li id="name" class="active"></li>
+          <li id="mail"></li>
+          <li id="date"></li>
+          <li id="location"></li>
+          <li id="phone"></li>
+          <li id="password"></li>
+        </ul>
+      </div>
+      <P class="generateUser">To generate the users click on Genera utenti on the navigation bar </P>
+    </div>
+  </div>
+  <div id="gnerateUser" class="container-fluid">
+    <h1> In this page you can generate the users</h1>
+    <div id="controlContainer">
+      <div class="row align-items-start justify-content-center gy-4 gx-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="divSlider">
+            <label for="userRange" class="form-label">How many users?</label>
+            <input type="range" class="form-range" min="1" max="100" value="1" id="userRange">
+            <output for="userRange" id="rangeValue" aria-hidden="true"></output>
+            <div id="moreUsers" style="display: none;">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="moreUsersActivation">
+                <label class="form-check-label" for="moreUsersActivation">Increase the maximum users generated</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div id="radioDiv" class="d-flex flex-wrap gap-3 align-items-center justify-content-center">
+            <label for="radioDiv">Gender:</label>
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="radio" name="genderUsers" id="radioMale" value="male">
+              <label class="form-check-label" for="radioMale">
+                Male
+              </label>
+            </div>
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="radio" name="genderUsers" id="radioFemale" value="female">
+              <label class="form-check-label" for="radioFemale">
+                Female
+              </label>
+            </div>
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="radio" name="genderUsers" id="radioAll" value="all" checked>
+              <label class="form-check-label" for="radioAll">
+                All
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4">
+          <div id="natDiv">
+          <label for="natDiv" class="d-block mb-2">Nationality:</label>
+          <div class="d-flex flex-wrap gap-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkAustralia">
+              <label class="form-check-label noto-color-emoji-regular" for="chkAustralia">
+                🇦🇺 Australia
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkCanada">
+              <label class="form-check-label noto-color-emoji-regular" for="chkCanada">
+                🇨🇦 Canada
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkBrazil">
+              <label class="form-check-label noto-color-emoji-regular" for="chkBrazil">
+                🇧🇷 Brazil
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkFrance">
+              <label class="form-check-label noto-color-emoji-regular" for="chkFrance">
+                🇫🇷 France
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkGermany">
+              <label class="form-check-label noto-color-emoji-regular" for="chkGermany">
+                🇩🇪 Germany
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkIndia">
+              <label class="form-check-label noto-color-emoji-regular" for="chkIndia">
+                🇮🇳 India
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkIran">
+              <label class="form-check-label noto-color-emoji-regular" for="chkIran">
+                🇮🇷 Iran
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkMexico">
+              <label class="form-check-label noto-color-emoji-regular" for="chkMexico">
+                🇲🇽 Mexico
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="chkNewZealand">
+              <label class="form-check-label noto-color-emoji-regular" for="chkNewZealand">
+                🇳🇿 New Zealand
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="userGenerationText">By clicking the button below, you can generate users based on the selected criteria and you'll be redirected to the Table visualization page, which allows you to view the generated users in a structured format. If no nationality is selected, it'll assume all nationalities are selected, even those not listed on the checkboxes.</p>
+    <button id="btnGenerateUsers" type="button" class="btn btn-outline-light">Generate users</button>
+  </div>
+  </div>
+  <div id="tableVisualization" class="container-fluid">
+    <div id="userContainer" class="UserContainer">
+      <!--
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+    </div>
+    <div id="buttons">
+        <input id="Indietro" type="button" value="Indietro">
+        <p></p>
+        <input id="Avanti" type="button" value="Avanti">
+      </div>
+  </div>
+</body> 
+</html>
